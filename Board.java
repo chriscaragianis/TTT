@@ -4,6 +4,10 @@ class Board{
 
   private static String[][] board;
 
+  public String getBoard(int row, int col){
+    return board[row][col];
+  }
+
   public void startBoard(int length){
     board = new String[length][length];
     for(int i = 0; i < length; i++){
