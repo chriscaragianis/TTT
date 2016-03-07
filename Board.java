@@ -2,7 +2,7 @@ import java.util.*;
 
 class Board{
 
-  private String[][] board;
+  private static String[][] board;
 
   public void startBoard(int length){
     board = new String[length][length];
@@ -11,6 +11,10 @@ class Board{
         board[i][j] = "-";
       }
     }
+    int position = 0;
+    board[position + 2][position] = "X";
+    board[position + 1][position + 1] = "X";
+    board[position][position + 2] = "X";
   }
 
   public boolean isFull(){
