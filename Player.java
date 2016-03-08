@@ -2,7 +2,14 @@ import java.util.Random;
 class Player{
   private String player1;
   private String player2;
-  Board b = new Board();
+
+  public String getPlayer1(){
+    return player1;
+  }
+
+  public String getPlayer2(){
+    return player2;
+  }
 
   public void setPlayerNames(String firstPlayer, String secondPlayer){
     player1 = firstPlayer;
@@ -11,12 +18,14 @@ class Player{
 
   public int whoIsFirst(){
     Random random = new Random();
+    String goingFirst;
     int  n = random.nextInt(2) + 1;
-    System.out.println("Looks like player " + n + " is going first!");
+    if(n == 1){
+      goingFirst = player1;
+    }else{
+      goingFirst = player2;
+    }
+    System.out.println("Looks like " + goingFirst + " is X and going first!");
     return n;
-  }
-
-  public void makeMove(String playerName, int xPos, int yPos){
-    b.setBoard(playerName, xPos, yPos);
   }
 }

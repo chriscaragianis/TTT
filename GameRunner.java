@@ -1,7 +1,7 @@
 import java.util.*;
 class GameRunner{
 
-  public static void checkForWin(String winner){
+  public static void checkForWin(String winner  ){
     Board b = new Board();
     for(int i = 0; i < 3; i++){
       if(b.getBoard(i,0) == winner &&
@@ -23,7 +23,8 @@ class GameRunner{
         System.out.println(winner + " Wins!");
     }
 
-    else if(b.getBoard(2,0) == winner && b.getBoard(1,1) == winner &&
+    else if(b.getBoard(2,0) == winner &&
+      b.getBoard(1,1) == winner &&
       b.getBoard(0,2) == winner){
         System.out.println(winner + " Wins!");
     }
@@ -31,9 +32,11 @@ class GameRunner{
 
   public static void main(String[] args) {
     Board myBoard = new Board();
+    Player myPlayer = new Player();
     myBoard.startBoard(3);
     System.out.println(myBoard.toString());
-    System.out.println(myBoard.isFull());
+    myPlayer.setPlayerNames("Youheng", "Tanner");
+    myPlayer.whoIsFirst();
 
     checkForWin("X");
   }
