@@ -8,6 +8,10 @@ class Board{
     return board[row][col];
   }
 
+  public void setBoard(String playerName, int row, int col){
+    board[row][col] = playerName;
+  }
+
   public void startBoard(int length){
     board = new String[length][length];
     for(int i = 0; i < length; i++){
@@ -15,10 +19,6 @@ class Board{
         board[i][j] = "-";
       }
     }
-    int position = 0;
-    board[position + 2][position] = "X";
-    board[position + 1][position + 1] = "X";
-    board[position][position + 2] = "X";
   }
 
   public boolean isFull(){
@@ -32,25 +32,17 @@ class Board{
     return true;
   }
 
-  public void makeBoard(){
-    System.out.println("-------");
-    System.out.println("| | | |");
-    System.out.println("-------");
-    System.out.println("| | | |");
-    System.out.println("-------");
-    System.out.println("| | | |");
-    System.out.println("-------");
-  }
-
-  public void printBoard() {
-    System.out.println("-------------");
+  public String toString() {
+    String result;
+    result = "-------------\n";
     for (int i = 0; i < 3; i++) {
-      System.out.print("| ");
+      result += "| ";
       for (int j = 0; j < 3; j++) {
-        System.out.print(board[i][j] + " | ");
+        result += board[i][j] + " | ";
       }
-      System.out.println();
-      System.out.println("-------------");
+
+      result += "\n-------------\n";
     }
+    return result;
   }
 }

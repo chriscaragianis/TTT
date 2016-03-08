@@ -32,7 +32,7 @@ class GameRunner{
   public static void main(String[] args) {
     Board myBoard = new Board();
     myBoard.startBoard(3);
-    myBoard.printBoard();
+    System.out.println(myBoard.toString());
     System.out.println(myBoard.isFull());
 
     checkForWin("X");
