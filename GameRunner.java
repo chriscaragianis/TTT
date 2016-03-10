@@ -7,14 +7,12 @@ class GameRunner{
       if(b.getBoard(i,0) == winner &&
         (b.getBoard(i,1) == winner) &&
         (b.getBoard(i,2) == winner)){
-          System.out.println(winner + " Wins!");
           return true;
       }
 
       else if(b.getBoard(0,i) == winner &&
         b.getBoard(1,i) == winner &&
         b.getBoard(2,i) == winner){
-          System.out.println(winner + " Wins!");
           return true;
       }
     }
@@ -22,14 +20,12 @@ class GameRunner{
     if(b.getBoard(0,0) == winner &&
       b.getBoard(1,1) == winner &&
       b.getBoard(2,2) == winner){
-        System.out.println(winner + " Wins!");
         return true;
     }
 
     else if(b.getBoard(2,0) == winner &&
       b.getBoard(1,1) == winner &&
       b.getBoard(0,2) == winner){
-        System.out.println(winner + " Wins!");
         return true;
     }
     return false;

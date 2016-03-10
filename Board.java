@@ -3,7 +3,7 @@ import java.util.*;
 class Board{
 
   private static String[][] board;
-  Scanner move = new Scanner(System.in);
+  public Scanner move = new Scanner(System.in);
 
   public String getBoard(int row, int col){
     return board[row][col];
@@ -13,8 +13,8 @@ class Board{
   public void makeMoveX(){
     int y = move.nextInt();
     int x = move.nextInt();
-    if(board[y][x] == "-"){
-      board[y][x] = "X";
+    if(board[x][y] == "-"){
+      board[x][y] = "X";
     }else{
       System.out.println("Cannot make that move!");
     }
@@ -24,8 +24,8 @@ class Board{
   public void makeMoveO(){
     int y = move.nextInt();
     int x = move.nextInt();
-    if(board[y][x] == "-"){
-      board[y][x] = "O";
+    if(board[x][y] == "-"){
+      board[x][y] = "O";
     }else{
       System.out.println("Cannot make that move!");
     }
