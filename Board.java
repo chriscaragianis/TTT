@@ -3,42 +3,56 @@ import java.util.*;
 class Board{
 
   private static String[][] board;
+  Scanner move = new Scanner(System.in);
 
   public String getBoard(int row, int col){
     return board[row][col];
   }
 
-  public void makeMoveX(int row, int col){
-    board[row][col] = "X";
+//Allow the first player makes a move
+  public void makeMoveX(){
+    int y = move.nextInt();
+    int x = move.nextInt();
+    if(board[y][x] == "-"){
+      board[y][x] = "X";
+    }else{
+      System.out.println("Cannot make that move!");
+    }
   }
 
-  public void makeMoveO(int row, int col){
-    board[row][col] = "O";
+//Allow the second player makes a move
+  public void makeMoveO(){
+    int y = move.nextInt();
+    int x = move.nextInt();
+    if(board[y][x] == "-"){
+      board[y][x] = "O";
+    }else{
+      System.out.println("Cannot make that move!");
+    }
   }
 
 //Constructor
   public void startBoard(int length){
+    GameRunner.changeGameStatus("PLAY");
     board = new String[length][length];
     for(int i = 0; i < length; i++){
       for(int j = 0; j < length; j++){
         board[i][j] = "-";
       }
     }
-    board[2][0] = "X";
-    board[1][1] = "O";
-    board[0][2] = "X";
   }
 
 //Check if the board is full or not
-  public boolean isFull(){
+  public void isFull(){
     for(int i = 0; i < board.length; i++){
       for(int j = 0; j < board[i].length; j++){
         if(board[i][j] == "-"){
-          return false;
+          GameRunner.changeGameStatus("PLAY");
+        }else{
+          GameRunner.changeGameStatus("DRAW");
         }
       }
     }
-    return true;
   }
 
 //returns the board in the string form

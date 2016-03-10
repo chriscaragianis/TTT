@@ -1,31 +1,34 @@
-import java.util.Random;
+import java.util.*;
 class Player{
-  private String player1;
-  private String player2;
+  private String[] players = new String[2];
 
-  public String getPlayer1(){
-    return player1;
+  public String getPlayer(int i){
+    return players[i];
   }
 
-  public String getPlayer2(){
-    return player2;
-  }
-
-  public void setPlayerNames(String firstPlayer, String secondPlayer){
-    player1 = firstPlayer;
-    player2 = secondPlayer;
+  public void setPlayerNames(){
+    Scanner userInput = new Scanner(System.in);
+    System.out.println("First player: ");
+    players[0] = userInput.next( );
+    System.out.println("Second player: ");
+    players[1] = userInput.next( );
   }
 
   public int whoIsFirst(){
     Random random = new Random();
     String goingFirst;
+    String goingSecond;
     int  n = random.nextInt(2) + 1;
     if(n == 1){
-      goingFirst = player1;
+      goingFirst = players[0];
+      goingSecond = players[1];
     }else{
-      goingFirst = player2;
+      goingFirst = players[1];
+      goingSecond = players[0];
     }
-    System.out.println("Looks like " + goingFirst + " is X and going first!");
+    System.out.println("Looks like " + goingFirst + " is X \nand " +
+      goingSecond + " is O \n" +
+      goingFirst + " is going first!");
     return n;
   }
 }
