@@ -1,6 +1,13 @@
 import java.util.*;
 class GameRunner{
 
+  private static String gameStatus;
+
+//change the game status
+  public static void changeGameStatus(String i){
+    gameStatus = i;
+  }
+//check if there are winners
   public boolean checkForWin(String winner, Board b){
 
     for(int i = 0; i < 3; i++){
@@ -29,17 +36,14 @@ class GameRunner{
         return true;
     }
     return false;
-}
+  }
 
+//simple welcome message
   public String welcomeMessage(){
     return "Welcome to my TicTacToe game!";
   }
 
-  private static String gameStatus;
-  public static void changeGameStatus(String i){
-    gameStatus = i;
-  }
-
+//main game logic
   public static void main(String[] args) {
     GameRunner myClient = new GameRunner();
     Board myBoard = new Board();

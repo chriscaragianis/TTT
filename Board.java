@@ -5,6 +5,7 @@ class Board{
   private static String[][] board;
   public Scanner move = new Scanner(System.in);
 
+//get information from the private board 2D array
   public String getBoard(int row, int col){
     return board[row][col];
   }
@@ -31,7 +32,7 @@ class Board{
     }
   }
 
-//Constructor
+//Start the board with - as empty spaces
   public void startBoard(int length){
     GameRunner.changeGameStatus("PLAY");
     board = new String[length][length];

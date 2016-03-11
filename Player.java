@@ -2,10 +2,12 @@ import java.util.*;
 class Player{
   private String[] players = new String[2];
 
+//get player information
   public String getPlayer(int i){
     return players[i];
   }
 
+//let user to chose their names
   public void setPlayerNames(){
     Scanner userInput = new Scanner(System.in);
     System.out.println("First player: ");
@@ -14,6 +16,7 @@ class Player{
     players[1] = userInput.next( );
   }
 
+//randomnizer to tell who is going first
   public int whoIsFirst(){
     Random random = new Random();
     String goingFirst;
